@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".onboarding"/>
         <activity android:name=".welcome"/>
+        <activity android:name=".signin"/>
+        <activity android:name=".profile"/>
     </application>
 
 </manifest>

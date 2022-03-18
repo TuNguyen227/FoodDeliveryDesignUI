@@ -1,5 +1,6 @@
 package com.example.fooddelivery
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
@@ -25,7 +26,8 @@ class welcome : AppCompatActivity() {
         }
 
         anotherbtn.setOnClickListener {
-            Toast.makeText(applicationContext,"Sigining with another method",Toast.LENGTH_SHORT).show()
+            var intent= Intent(applicationContext,signin::class.java)
+            startActivity(intent)
         }
 
         skipbtn.setOnClickListener {
