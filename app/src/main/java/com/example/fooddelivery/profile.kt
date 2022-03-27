@@ -7,16 +7,21 @@ import android.view.LayoutInflater
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import com.example.fooddelivery.databinding.DialogBinding
+import com.example.fooddelivery.databinding.ProfileBinding
 
 class profile : AppCompatActivity() {
+    private lateinit var binding: ProfileBinding
+    private lateinit var dialogbinding:DialogBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
-        setContentView(R.layout.profile)
-        var username=findViewById<TextView>(R.id.profilename)
-        var useremail=findViewById<TextView>(R.id.profilemail)
-        var signout=findViewById<Button>(R.id.signoutprofile)
-        var phone=findViewById<TextView>(R.id.profilphone)
+        binding=DataBindingUtil.setContentView(this,R.layout.profile)
+        var username=binding.profilename
+        var useremail=binding.profilemail
+        var signout=binding.signoutprofile
+        var phone=binding.profilphone
         getName_Dialog(username,useremail,phone)
         signout.setOnClickListener{
             onBackPressed()
@@ -25,6 +30,7 @@ class profile : AppCompatActivity() {
 
     fun getName_Dialog(username: TextView, usermail :TextView,phone:TextView)
     {
+
         val dialog=LayoutInflater.from(this).inflate(R.layout.dialog,null)
         val dialogbuilder=AlertDialog.Builder(this)
             .setView(dialog)
@@ -37,9 +43,11 @@ class profile : AppCompatActivity() {
         phoneuser.setHint("Type your phone number")
         val mdialog=dialogbuilder.show()
         btn.setOnClickListener{
-            username.setText(nameuser.text.toString())
-            phone.setText(phoneuser.text.toString())
-            usermail.setText(intent.getStringExtra("email"))
+            Data.name=nameuser.text.toString()
+            Data.phone=phoneuser.text.toString()
+            username.setText(Data.name)
+            phone.setText(Data.phone)
+            usermail.setText(Data.mail)
             mdialog.dismiss()
         }
 
