@@ -22,6 +22,8 @@
         <activity android:name=".welcome"/>
         <activity android:name=".signin"/>
         <activity android:name=".profile"/>
+        <activity android:name=".signup"/>
+        <activity android:name=".RecycleActivity"/>
     </application>
 
 </manifest>
