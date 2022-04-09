@@ -32,7 +32,7 @@ class signin : AppCompatActivity() {
             var isAccountFound=Validators.checkaccountIsMatchData(user_mail.toString(),user_pass.toString())
             if (isAccountFound)
             {
-                var intent=Intent(applicationContext,profile::class.java)
+                var intent=Intent(applicationContext,RecycleActivity::class.java)
                 startActivity(intent)
             }
             else
