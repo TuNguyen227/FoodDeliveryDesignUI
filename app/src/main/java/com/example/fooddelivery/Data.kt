@@ -1,15 +1,10 @@
 package com.example.fooddelivery
 
 object Data {
+    var name: String? = null
+    var mail: String? = null
+    var pass: String? = null
+    var phone: String?=null
 
-    private var List= mutableListOf<user>()
 
-    fun getList(): List<user> {
-        return List
-    }
-
-    fun addtolist(user: user)
-    {
-        List.add(user)
-    }
 }
